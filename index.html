@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sorpresa Amarilla</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: #fff8dc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+    h1 {
+      color: #ffcc00;
+      text-align: center;
+    }
+    button {
+      background-color: #ffcc00;
+      color: white;
+      border: none;
+      padding: 20px 40px;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .petal {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background-color: #ffcc00;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: fall 5s linear infinite;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Presiona el botón para tu sorpresa</h1>
+  <button onclick="startSurprise()">Haz clic aquí</button>
+
+  <script>
+    function startSurprise() {
+      document.body.innerHTML = '<h1>¡Feliz Día de las Flores Amarillas! 🌼</h1>';
+      for (let i = 0; i < 50; i++) {
+        const petal = document.createElement('div');
+        petal.classList.add('petal');
+        petal.style.left = `${Math.random() * 100}vw`;
+        petal.style.animationDuration = `${Math.random() * 5 + 3}s`;
+        document.body.appendChild(petal);
+      }
+    }
+  </script>
+</body>
+</html>
